@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://djjo8nxvmqvfr"]
+
+[ext_resource type="PackedScene" uid="uid://b432lstq4hbjh" path="res://warrior_unit.tscn" id="1_1147a"]
+[ext_resource type="PackedScene" uid="uid://dvnlg3oco7q6q" path="res://archer_unit.tscn" id="2_arn7n"]
+[ext_resource type="PackedScene" uid="uid://cjgacmk1cs7um" path="res://mage_unit.tscn" id="3_566yx"]
+
+[node name="Game" type="Node2D"]
+
+[node name="WarriorUnit" parent="." instance=ExtResource("1_1147a")]
+
+[node name="ArcherUnit" parent="." instance=ExtResource("2_arn7n")]
+
+[node name="MageUnit" parent="." instance=ExtResource("3_566yx")]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b432lstq4hbjh"]
+
+[ext_resource type="Script" path="res://warrior_unit.gd" id="1_8bvfh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_anpf6"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"warrior_attack_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"warrior_attack_2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"warrior_attack_3",
+"speed": 5.0
+}]
+
+[node name="WarriorUnit" type="Node2D"]
+script = ExtResource("1_8bvfh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_anpf6")
+animation = &"warrior_attack_3"

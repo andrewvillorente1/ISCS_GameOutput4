@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvnlg3oco7q6q"]
+
+[ext_resource type="Script" path="res://archer_unit.gd" id="1_qje25"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0y8ja"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"archer_attack_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"archer_attack_2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"archer_attack_3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="ArcherUnit" type="Node2D"]
+script = ExtResource("1_qje25")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0y8ja")
+animation = &"archer_attack_3"

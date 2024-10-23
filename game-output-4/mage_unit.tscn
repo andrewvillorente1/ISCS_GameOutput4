@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjgacmk1cs7um"]
+
+[ext_resource type="Script" path="res://mage_unit.gd" id="1_v6jlu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0icl"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mage_attack_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mage_attack_2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mage_attack_3",
+"speed": 5.0
+}]
+
+[node name="MageUnit" type="Node2D"]
+script = ExtResource("1_v6jlu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s0icl")
+animation = &"mage_attack_3"
