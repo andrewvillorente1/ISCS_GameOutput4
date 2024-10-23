@@ -108,16 +108,6 @@ animations = [{
 "loop": true,
 "name": &"warrior_attack_3",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"warrior_defend_1",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"warrior_poisoned",
-"speed": 5.0
 }]
 
 [node name="WarriorUnit" type="Node2D"]
@@ -128,4 +118,3 @@ sprite_frames = SubResource("SpriteFrames_anpf6")
 animation = &"warrior_attack_1"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 6.0

@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bytyvm327mtux"]
+
+[ext_resource type="Script" path="res://tank_unit.gd" id="1_lfiwm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngqsw"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"tank_attack_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"tank_attack_2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"tank_attack_3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"tank_defend",
+"speed": 5.0
+}]
+
+[node name="TankUnit" type="Node2D"]
+script = ExtResource("1_lfiwm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ngqsw")
+animation = &"tank_defend"

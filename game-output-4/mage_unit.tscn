@@ -1,27 +1,122 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjgacmk1cs7um"]
+[gd_scene load_steps=16 format=3 uid="uid://cjgacmk1cs7um"]
 
 [ext_resource type="Script" path="res://mage_unit.gd" id="1_v6jlu"]
+[ext_resource type="Texture2D" uid="uid://u1t2bponwpia" path="res://Assets/Skeleton/Skeleton_Mage.png" id="2_jbllr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjj8n"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd6uf"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osg5r"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ox0f"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wvai"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kvy8"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2qm7"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqobf"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ks7e"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm2cp"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov6s4"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b50m"]
+atlas = ExtResource("2_jbllr")
+region = Rect2(128, 192, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s0icl"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_cjj8n")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_pd6uf")
+}],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 4.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osg5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ox0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wvai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kvy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2qm7")
+}],
 "loop": true,
 "name": &"mage_attack_1",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqobf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ks7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm2cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov6s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b50m")
+}],
 "loop": true,
 "name": &"mage_attack_2",
 "speed": 5.0
 }, {
 "frames": [],
 "loop": true,
-"name": &"mage_attack_3",
+"name": &"mage_defend",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mage_heal",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mage_poison",
 "speed": 5.0
 }]
 
@@ -30,4 +125,4 @@ script = ExtResource("1_v6jlu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s0icl")
-animation = &"mage_attack_3"
+animation = &"mage_poison"
