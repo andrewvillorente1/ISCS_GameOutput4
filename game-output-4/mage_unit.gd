@@ -3,7 +3,6 @@ extends Node2D
 var health = 100
 var attack_1_damage = 35
 var attack_2_damage = 50
-var attack_3_damage = 75
 var is_animating = false
 
 @onready var animated_sprite = $AnimatedSprite2D

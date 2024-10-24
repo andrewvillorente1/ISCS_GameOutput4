@@ -47,7 +47,7 @@ func damage_heal(add_health: int) -> void:
 	health += add_health
 
 func die():
-	print("Warrior has been defeated!")
+	print("Tank has been defeated!")
 	queue_free()
 
 func play_animation(animation_name: String) -> void:

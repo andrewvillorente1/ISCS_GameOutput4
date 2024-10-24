@@ -41,6 +41,7 @@ func defend():
 
 func skill_multiplier():
 	if multiplier_counter < 4:
+		play_animation("warrior_attack_multiplied")
 		attack_multiplier = 1.25
 
 func return_multiplier_count() -> int:
