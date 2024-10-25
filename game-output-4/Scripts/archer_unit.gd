@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var in_team: bool
+
 var unit_name = "Archer"
 var health = 90
 
@@ -9,7 +11,6 @@ var received_status = "none"
 var status_count = 0
 
 var crit_chance = 40
-
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -21,7 +22,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not is_animating:  # Only play idle if no other animation is playing
 		animated_sprite.play("idle")
-
+	pass
 
 #Attacks:
 

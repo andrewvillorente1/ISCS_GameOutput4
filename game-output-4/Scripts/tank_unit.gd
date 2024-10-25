@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var in_team: bool
+
 var unit_name = "Tank"
 var health = 180
 

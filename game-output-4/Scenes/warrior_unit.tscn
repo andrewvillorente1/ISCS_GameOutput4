@@ -150,7 +150,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t0231")
 }],
-"loop": true,
+"loop": false,
 "name": &"warrior_defend_1",
 "speed": 5.0
 }, {
@@ -167,7 +167,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q6r7p")
 }],
-"loop": true,
+"loop": false,
 "name": &"warrior_poisoned",
 "speed": 5.0
 }]
@@ -177,7 +177,7 @@ script = ExtResource("1_8bvfh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_anpf6")
-animation = &"warrior_attack_multiplied"
+animation = &"idle"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0

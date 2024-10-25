@@ -100,7 +100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xlhws")
 }],
-"loop": true,
+"loop": false,
 "name": &"mage_heal",
 "speed": 5.0
 }, {
@@ -117,7 +117,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lr6ik")
 }],
-"loop": true,
+"loop": false,
 "name": &"mage_poison",
 "speed": 5.0
 }, {
@@ -134,7 +134,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pyo5u")
 }],
-"loop": true,
+"loop": false,
 "name": &"mage_sleep",
 "speed": 5.0
 }]
@@ -144,4 +144,4 @@ script = ExtResource("1_v6jlu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s0icl")
-animation = &"mage_sleep"
+animation = &"idle"
