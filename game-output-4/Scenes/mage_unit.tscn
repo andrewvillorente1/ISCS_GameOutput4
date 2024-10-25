@@ -1,0 +1,147 @@
+[gd_scene load_steps=21 format=3 uid="uid://cjgacmk1cs7um"]
+
+[ext_resource type="Script" path="res://Scripts/mage_unit.gd" id="1_v6jlu"]
+[ext_resource type="Texture2D" uid="uid://cwjy76esn05jl" path="res://Assets/classes sprite sheet.png" id="2_4axct"]
+[ext_resource type="Texture2D" uid="uid://1p13rpx07m2k" path="res://Assets/classes sprite sheet animations.png" id="3_mmjiv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcrnt"]
+atlas = ExtResource("2_4axct")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gi8h"]
+atlas = ExtResource("2_4axct")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1io86"]
+atlas = ExtResource("2_4axct")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd2c1"]
+atlas = ExtResource("2_4axct")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk5ob"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4bfa"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdoqa"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlhws"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvuod"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(320, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn8gl"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(352, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7coqb"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(384, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr6ik"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(416, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjaef"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2x45"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwquo"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyo5u"]
+atlas = ExtResource("3_mmjiv")
+region = Rect2(256, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0icl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcrnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gi8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1io86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd2c1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk5ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4bfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdoqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlhws")
+}],
+"loop": true,
+"name": &"mage_heal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvuod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn8gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7coqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr6ik")
+}],
+"loop": true,
+"name": &"mage_poison",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjaef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2x45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwquo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyo5u")
+}],
+"loop": true,
+"name": &"mage_sleep",
+"speed": 5.0
+}]
+
+[node name="MageUnit" type="Node2D"]
+script = ExtResource("1_v6jlu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s0icl")
+animation = &"mage_sleep"

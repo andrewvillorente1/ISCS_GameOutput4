@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://djjo8nxvmqvfr"]
 
-[ext_resource type="PackedScene" uid="uid://b432lstq4hbjh" path="res://warrior_unit.tscn" id="1_1147a"]
-[ext_resource type="Script" path="res://game.gd" id="1_fnpsa"]
+[ext_resource type="PackedScene" uid="uid://b432lstq4hbjh" path="res://Scenes/warrior_unit.tscn" id="1_1147a"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_fnpsa"]
 [ext_resource type="Texture2D" uid="uid://eba5iic50rtd" path="res://Assets/BackgroundSample.png" id="2_5j77j"]
-[ext_resource type="PackedScene" uid="uid://dvnlg3oco7q6q" path="res://archer_unit.tscn" id="2_arn7n"]
-[ext_resource type="PackedScene" uid="uid://cjgacmk1cs7um" path="res://mage_unit.tscn" id="3_566yx"]
+[ext_resource type="PackedScene" uid="uid://dvnlg3oco7q6q" path="res://Scenes/archer_unit.tscn" id="2_arn7n"]
+[ext_resource type="PackedScene" uid="uid://cjgacmk1cs7um" path="res://Scenes/mage_unit.tscn" id="3_566yx"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_fnpsa")

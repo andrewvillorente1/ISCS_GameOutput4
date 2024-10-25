@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://bytyvm327mtux"]
+
+[ext_resource type="Script" path="res://Scripts/tank_unit.gd" id="1_o2gqe"]
+[ext_resource type="Texture2D" uid="uid://cwjy76esn05jl" path="res://Assets/classes sprite sheet.png" id="2_nytpp"]
+[ext_resource type="Texture2D" uid="uid://1p13rpx07m2k" path="res://Assets/classes sprite sheet animations.png" id="3_ftsio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s0na"]
+atlas = ExtResource("2_nytpp")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bscod"]
+atlas = ExtResource("2_nytpp")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsmxx"]
+atlas = ExtResource("2_nytpp")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70pkq"]
+atlas = ExtResource("2_nytpp")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u8uj"]
+atlas = ExtResource("3_ftsio")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fao4"]
+atlas = ExtResource("3_ftsio")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g7te"]
+atlas = ExtResource("3_ftsio")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7nhc"]
+atlas = ExtResource("3_ftsio")
+region = Rect2(256, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m46y6"]
+atlas = ExtResource("3_ftsio")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8hle"]
+atlas = ExtResource("3_ftsio")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmn6c"]
+atlas = ExtResource("3_ftsio")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7taj"]
+atlas = ExtResource("3_ftsio")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ngqsw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s0na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bscod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsmxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70pkq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u8uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fao4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g7te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7nhc")
+}],
+"loop": true,
+"name": &"tank_attack_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m46y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8hle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmn6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7taj")
+}],
+"loop": true,
+"name": &"tank_defend",
+"speed": 5.0
+}]
+
+[node name="TankUnit" type="Node2D"]
+script = ExtResource("1_o2gqe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ngqsw")
+animation = &"tank_defend"
