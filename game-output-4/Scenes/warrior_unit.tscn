@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b432lstq4hbjh"]
+[gd_scene load_steps=17 format=3 uid="uid://b432lstq4hbjh"]
 
 [ext_resource type="Script" path="res://Scripts/warrior_unit.gd" id="1_8bvfh"]
 [ext_resource type="Texture2D" uid="uid://cwjy76esn05jl" path="res://Assets/classes sprite sheet.png" id="2_vpoik"]
@@ -50,38 +50,6 @@ region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3tis"]
 atlas = ExtResource("3_fic4n")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1711"]
-atlas = ExtResource("2_vpoik")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdddv"]
-atlas = ExtResource("2_vpoik")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nekeh"]
-atlas = ExtResource("2_vpoik")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t0231"]
-atlas = ExtResource("2_vpoik")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a517r"]
-atlas = ExtResource("2_vpoik")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rp0pp"]
-atlas = ExtResource("2_vpoik")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nc4j3"]
-atlas = ExtResource("2_vpoik")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6r7p"]
-atlas = ExtResource("2_vpoik")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_anpf6"]
@@ -136,40 +104,6 @@ animations = [{
 "loop": true,
 "name": &"warrior_attack_multiplied",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r1711")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kdddv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nekeh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t0231")
-}],
-"loop": false,
-"name": &"warrior_defend_1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a517r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rp0pp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nc4j3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q6r7p")
-}],
-"loop": false,
-"name": &"warrior_poisoned",
-"speed": 5.0
 }]
 
 [node name="WarriorUnit" type="Node2D"]
@@ -177,7 +111,7 @@ script = ExtResource("1_8bvfh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_anpf6")
-animation = &"idle"
+animation = &"warrior_attack_multiplied"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0

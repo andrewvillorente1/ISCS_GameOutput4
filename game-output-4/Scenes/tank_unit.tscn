@@ -84,9 +84,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v7nhc")
 }],
-"loop": true,
+"loop": false,
 "name": &"tank_attack_1",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -101,7 +101,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q7taj")
 }],
-"loop": true,
+"loop": false,
 "name": &"tank_defend",
 "speed": 5.0
 }]
@@ -111,4 +111,4 @@ script = ExtResource("1_o2gqe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ngqsw")
-animation = &"tank_attack_1"
+animation = &"idle"

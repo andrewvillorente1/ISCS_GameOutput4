@@ -67,9 +67,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ht3ew")
 }],
-"loop": true,
+"loop": false,
 "name": &"archer_attack_1",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,7 +84,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a53ga")
 }],
-"loop": true,
+"loop": false,
 "name": &"archer_crit",
 "speed": 5.0
 }, {
@@ -111,7 +111,7 @@ script = ExtResource("1_qje25")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f8a5h")
-animation = &"idle"
+animation = &"archer_attack_1"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0

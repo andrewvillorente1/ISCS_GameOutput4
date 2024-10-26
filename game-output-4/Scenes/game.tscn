@@ -15,30 +15,30 @@ position = Vector2(120, 64)
 texture = ExtResource("2_5j77j")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(124, 62)
-zoom = Vector2(5.5, 5.5)
+position = Vector2(120, 64)
+zoom = Vector2(5.625, 5.625)
 
 [node name="Player" type="Node" parent="."]
 
 [node name="MageUnit" parent="Player" groups=["entities"] instance=ExtResource("3_566yx")]
-position = Vector2(42, 93)
+position = Vector2(50, 73)
 in_team = true
 
 [node name="TankUnit" parent="Player" groups=["entities"] instance=ExtResource("4_nuu5h")]
-position = Vector2(76, 64)
+position = Vector2(83, 73)
 in_team = true
 
 [node name="WarriorUnit" parent="Player" groups=["entities"] instance=ExtResource("1_1147a")]
-position = Vector2(45, 40)
+position = Vector2(115, 73)
 in_team = true
 
 [node name="Enemy" type="Node" parent="."]
 
 [node name="ArcherUnit" parent="Enemy" groups=["entities"] instance=ExtResource("2_arn7n")]
-position = Vector2(190, 41)
+position = Vector2(119, 29)
 
 [node name="TankUnit2" parent="Enemy" groups=["entities"] instance=ExtResource("4_nuu5h")]
-position = Vector2(160, 72)
+position = Vector2(150, 29)
 
 [node name="ArcherUnit2" parent="Enemy" groups=["entities"] instance=ExtResource("2_arn7n")]
-position = Vector2(191, 95)
+position = Vector2(183, 29)

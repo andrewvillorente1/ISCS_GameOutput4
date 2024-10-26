@@ -31,6 +31,8 @@ func _process(delta):
 #		pick enemy/ally
 		pass
 	elif current_state == game_state.queue:
+#		
 		pass
 	elif current_state == game_state.battle_phase:
+#		
 		pass
