@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		animated_sprite.play("idle")
 
 
-#Attacks:
+#Attacks (Skill set):
 
 # Single attack function with an integer determining the type of attack
 func attack() -> int:

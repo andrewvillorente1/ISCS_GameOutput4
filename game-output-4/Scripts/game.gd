@@ -1,5 +1,8 @@
 extends Node2D
 
+# connect to Game UI
+@onready var user_interface = $UserInterface
+
 var current_state: int = game_state.prep_phase
 var team: Array[Node2D] = []
 var enemies: Array[Node2D] = []
@@ -21,12 +24,14 @@ func _ready():
 			team.append(member)
 		else:
 			enemies.append(member)
+			
 
 
 func _process(delta):
 	if current_state == game_state.prep_phase and current_member < team.size():
-#		cycle through each character
+		user_interface.skill_ui_update(team[current_member])
 		pass
+		
 	elif current_state == game_state.target:
 #		pick enemy/ally
 		pass
@@ -34,5 +39,4 @@ func _process(delta):
 #		
 		pass
 	elif current_state == game_state.battle_phase:
-#		
 		pass

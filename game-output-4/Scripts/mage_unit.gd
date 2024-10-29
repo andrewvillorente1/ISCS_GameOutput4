@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		animated_sprite.play("idle")
 
 
-#Attacks: Mage does not attack, it can only heal, poion, or make enemy fall asleep
+#Attacks (Skill set): Mage does not attack, it can only heal, poion, or make enemy fall asleep
 
 # Single attack function with an integer determining the type of attack
 func sleep() -> String:
