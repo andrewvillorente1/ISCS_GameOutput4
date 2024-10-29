@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var in_team: bool
+@export var skill_num: int = 2
 
 var unit_name = "Archer"
 var health = 90
@@ -25,7 +26,7 @@ func _process(delta: float) -> void:
 		animated_sprite.play("idle")
 	pass
 
-#Attacks (Skill set):
+#Attacks:
 
 # Single attack function with an integer determining the type of attack
 func attack() -> int:
@@ -46,6 +47,17 @@ func enhance_crit():
 	crit_chance = 100
 	print('crit enhanced to 80%, lowers 10% each round until 40% base')
 
+func skill_set(skill: int):
+	if skill == 0:
+		attack()
+	else:
+		enhance_crit()
+
+func skill_names(skill: int) -> String:
+	if skill == 0:
+		return "attack"
+	else:
+		return "enhance crit"
 
 #damage:
 func take_damage(amount: int):

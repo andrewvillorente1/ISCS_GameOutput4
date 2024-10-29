@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var in_team: bool
+@export var skill_num: int = 3
 
 var unit_name = "Mage"
 var health = 100
@@ -23,7 +24,7 @@ func _process(delta: float) -> void:
 		animated_sprite.play("idle")
 
 
-#Attacks (Skill set): Mage does not attack, it can only heal, poion, or make enemy fall asleep
+#Attacks: Mage does not attack, it can only heal, poion, or make enemy fall asleep
 
 # Single attack function with an integer determining the type of attack
 func sleep() -> String:
@@ -34,10 +35,10 @@ func sleep() -> String:
 		print("landing sleep failed (50/50)")
 		return ""
 
-func posion() -> String:
+func poison() -> String:
 	play_animation("mage_poison")
 	if randi_range(0, 100) <= 80:
-		return "posion"
+		return "poison"
 	else:
 		print("landing posion failed (80/20)")
 		return ""
@@ -46,6 +47,22 @@ func posion() -> String:
 func heal() -> int:
 	play_animation("mage_heal")
 	return 10
+
+func skill_set(skill: int):
+	if skill == 0:
+		sleep()
+	elif skill == 1:
+		poison()
+	else:
+		heal()
+
+func skill_names(skill: int) -> String:
+	if skill == 0:
+		return "sleep"
+	elif skill == 1:
+		return "poison"
+	else:
+		return "heal"
 
 #damage:
 func take_damage(amount: int):

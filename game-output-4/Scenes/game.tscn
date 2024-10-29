@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvnlg3oco7q6q" path="res://Scenes/archer_unit.tscn" id="2_arn7n"]
 [ext_resource type="PackedScene" uid="uid://cjgacmk1cs7um" path="res://Scenes/mage_unit.tscn" id="3_566yx"]
 [ext_resource type="PackedScene" uid="uid://bytyvm327mtux" path="res://Scenes/tank_unit.tscn" id="4_nuu5h"]
-[ext_resource type="Script" path="res://Scripts/user_interface.gd" id="7_ftcyl"]
+[ext_resource type="PackedScene" uid="uid://djdt8yxrbvbu8" path="res://Scenes/user_interface.tscn" id="7_xv123"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_fnpsa")
@@ -44,5 +44,4 @@ position = Vector2(150, 29)
 [node name="ArcherUnit2" parent="Enemy" groups=["entities"] instance=ExtResource("2_arn7n")]
 position = Vector2(183, 29)
 
-[node name="UserInterface" type="Node2D" parent="."]
-script = ExtResource("7_ftcyl")
+[node name="UserInterface" parent="." instance=ExtResource("7_xv123")]

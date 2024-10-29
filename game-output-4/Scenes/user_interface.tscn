@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://djdt8yxrbvbu8"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Main" type="Panel" parent="."]
+offset_top = 570.0
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 3
+
+[node name="HSplitContainer" type="GridContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Feedback" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Current" type="Panel" parent="."]
+offset_left = 861.0
+offset_top = 530.0
+offset_right = 1280.0
+offset_bottom = 570.0
+
+[node name="TurnPhaseExecute" type="Label" parent="Current"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Turn or something"
+horizontal_alignment = 1
+vertical_alignment = 1

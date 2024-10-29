@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var in_team: bool
+@export var skill_num: int = 2
 
 var unit_name = "Tank"
 var health = 180
@@ -23,8 +24,7 @@ func _process(delta: float) -> void:
 		animated_sprite.play("idle")
 
 
-#Attacks (Skill set):
-
+#Attacks:
 # Single attack function with an integer determining the type of attack
 func attack() -> int:
 	var attack_damage = randi_range(20, 25)
@@ -34,7 +34,17 @@ func attack() -> int:
 func defend():
 	play_animation("tank_defend")
 
+func skill_set(skill: int):
+	if skill == 0:
+		attack()
+	else:
+		defend()
 
+func skill_names(skill: int) -> String:
+	if skill == 0:
+		return "attack"
+	else:
+		return "defend"
 
 #damage:
 func take_damage(amount: int):
