@@ -43,5 +43,6 @@ position = Vector2(150, 29)
 
 [node name="ArcherUnit2" parent="Enemy" groups=["entities"] instance=ExtResource("2_arn7n")]
 position = Vector2(183, 29)
+unit_name = "Archer 2"
 
 [node name="UserInterface" parent="." instance=ExtResource("7_xv123")]

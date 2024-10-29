@@ -2,8 +2,9 @@ extends Node2D
 
 @export var in_team: bool
 @export var skill_num: int = 2
+@export var speed: int = 1
 
-var unit_name = "Tank"
+@export var unit_name = "Tank"
 var health = 180
 
 var is_animating = false
@@ -13,6 +14,7 @@ var status_count = 0
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+signal skill_target(skill_type: int)
 
 func _ready() -> void:
 	if in_team:
@@ -39,6 +41,12 @@ func skill_set(skill: int):
 		attack()
 	else:
 		defend()
+
+func skill_signal(skill: int):
+	if skill == 0:
+		emit_signal("skill_target", 0)
+	else:
+		emit_signal("skill_target", 1)
 
 func skill_names(skill: int) -> String:
 	if skill == 0:
