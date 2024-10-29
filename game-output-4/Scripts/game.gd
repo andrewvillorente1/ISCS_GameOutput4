@@ -9,8 +9,6 @@ var atk_panels: GridContainer
 var turn: Label
 var feedback: Label
 
-var button
-
 var current_member: int = 0
 var target_enemy: int = 0
 
@@ -60,25 +58,24 @@ func _process(delta):
 #		
 		pass
 		
-func choose_skill():
+func choose_skill(choice_num: int):
 	# identify what skill was chosen
+	var chosen_skill = team[current_member].skill_names(choice_num)
 	
-	#var chosen_skill = team[current_member].skill_names(choice_num)
-	#
-	#if chosen_skill == "attack":
-		#print("test attack")
-	#elif chosen_skill == "enhance crit":
-		#print("test enhance crit")
-	#elif chosen_skill == "sleep":
-		#print("test sleep")
-	#elif chosen_skill == "poison":
-		#print("test poison")
-	#elif chosen_skill == "heal":
-		#print("test heal")
-	#elif chosen_skill == "defend":
-		#print("test defend")
-	#elif chosen_skill == "enhance attack":	
-		#print("test enhance attack")
+	if chosen_skill == "attack":
+		print("test attack")
+	elif chosen_skill == "enhance crit":
+		print("test enhance crit")
+	elif chosen_skill == "sleep":
+		print("test sleep")
+	elif chosen_skill == "poison":
+		print("test poison")
+	elif chosen_skill == "heal":
+		print("test heal")
+	elif chosen_skill == "defend":
+		print("test defend")
+	elif chosen_skill == "enhance attack":	
+		print("test enhance attack")
 	
 	# move pointer to next player character
 	if current_member < (team.size()-1):
@@ -106,7 +103,6 @@ func update_ui():
 	
 	atk_panels.columns = team[current_member].skill_num
 	for i in team[current_member].skill_num:
-
 		var button = Button.new()
 		button.text = team[current_member].skill_names(i)
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -115,7 +111,7 @@ func update_ui():
 		button.anchor_right = 0.5
 		button.anchor_top = 0.5
 		button.anchor_bottom = 0.5
-		button.pressed.connect(self.choose_skill) # choose_skill function
+		button.pressed.connect(choose_skill(i)) # choose_skill function
 		atk_panels.add_child(button)
 	
 	# make panels visible
