@@ -33,8 +33,9 @@ func attack() -> int:
 	play_animation("tank_attack_1")
 	return attack_damage  # You can apply the damage after the animation is done
 
-func defend():
+func defend() -> int:
 	play_animation("tank_defend")
+	return 5
 
 func skill_set(skill: int):
 	if skill == 0:

@@ -48,7 +48,7 @@ func poison() -> String:
 #change it so that it calls the "add health function of the class"
 func heal() -> int:
 	play_animation("mage_heal")
-	return 10
+	return 30
 
 func skill_set(skill: int):
 	if skill == 0:

@@ -40,6 +40,7 @@ position = Vector2(119, 29)
 
 [node name="TankUnit2" parent="Enemy" groups=["entities"] instance=ExtResource("4_nuu5h")]
 position = Vector2(150, 29)
+unit_name = "Tank 2"
 
 [node name="ArcherUnit2" parent="Enemy" groups=["entities"] instance=ExtResource("2_arn7n")]
 position = Vector2(183, 29)

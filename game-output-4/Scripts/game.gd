@@ -191,15 +191,13 @@ func _process(delta):
 	elif current_state == game_state.queue:
 
 #		not yet working	
-		#sorted_action_value = []
-		#var keys = action_value_dict.keys()
-		#keys.sort_custom(func(a, b): return int(b.speed - a.speed))
-		#for node in keys:
-			##sorted_action_value.append({node: action_value_dict[node]})
-			#sorted_action_value.append({node: node.speed})
+		sorted_action_value = []
+		var keys = action_value_dict.keys()
+		keys.sort_custom(func(a, b): return int(b.speed < a.speed))
+		for node in keys:
+			sorted_action_value.append({node: action_value_dict[node]})
+			#sorted_action_value.append(node.speed)
 		
-		
-#	last part: untoggle everything
 		for atk in atk_panels[current_member].get_children():
 			atk.set_pressed(false)
 		for enemy in target_panel_enemy.get_children():
@@ -208,8 +206,14 @@ func _process(delta):
 			member.set_pressed(false)
 		
 		current_state = game_state.battle_phase
-		#print(sorted_action_value)
+		print(sorted_action_value)
 
 	elif current_state == game_state.battle_phase:
-#		
+		
+		for action in sorted_action_value:
+			for node in action:
+				var value = action[node]
+				print(value)
+
+		current_state = game_state.prep_phase
 		pass
