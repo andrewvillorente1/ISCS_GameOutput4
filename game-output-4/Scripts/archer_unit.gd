@@ -51,9 +51,9 @@ func enhance_crit():
 
 func skill_set(skill: int):
 	if skill == 0:
-		attack()
+		return attack()
 	else:
-		enhance_crit()
+		return enhance_crit()
 
 func skill_signal(skill: int):
 	if skill == 0:
@@ -75,8 +75,6 @@ func take_damage(amount: int):
 
 func die():
 	print("Warrior has been defeated!")
-	queue_free()
-
 #status:
 
 # call when receiving status

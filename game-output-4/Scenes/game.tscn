@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://djjo8nxvmqvfr"]
+[gd_scene load_steps=9 format=3 uid="uid://djjo8nxvmqvfr"]
 
 [ext_resource type="PackedScene" uid="uid://b432lstq4hbjh" path="res://Scenes/warrior_unit.tscn" id="1_1147a"]
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_fnpsa"]
 [ext_resource type="Texture2D" uid="uid://eba5iic50rtd" path="res://Assets/BackgroundSample.png" id="2_5j77j"]
 [ext_resource type="PackedScene" uid="uid://dvnlg3oco7q6q" path="res://Scenes/archer_unit.tscn" id="2_arn7n"]
 [ext_resource type="PackedScene" uid="uid://cjgacmk1cs7um" path="res://Scenes/mage_unit.tscn" id="3_566yx"]
+[ext_resource type="FontFile" uid="uid://gpdtw6e2e2rj" path="res://Assets/PixelOperator8.ttf" id="4_8tqtf"]
 [ext_resource type="PackedScene" uid="uid://bytyvm327mtux" path="res://Scenes/tank_unit.tscn" id="4_nuu5h"]
 [ext_resource type="PackedScene" uid="uid://djdt8yxrbvbu8" path="res://Scenes/user_interface.tscn" id="7_xv123"]
 
@@ -22,28 +23,170 @@ zoom = Vector2(5.625, 5.625)
 [node name="Player" type="Node" parent="."]
 
 [node name="MageUnit" parent="Player" groups=["entities"] instance=ExtResource("3_566yx")]
-position = Vector2(50, 73)
+position = Vector2(32, 76)
 in_team = true
+
+[node name="Name" type="Label" parent="Player/MageUnit"]
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 16.0
+offset_bottom = -13.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "mage"
+horizontal_alignment = 1
+
+[node name="Health" type="Label" parent="Player/MageUnit"]
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "0hp"
+horizontal_alignment = 1
 
 [node name="TankUnit" parent="Player" groups=["entities"] instance=ExtResource("4_nuu5h")]
-position = Vector2(83, 73)
+position = Vector2(72, 76)
 in_team = true
 
+[node name="Name2" type="Label" parent="Player/TankUnit"]
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 16.0
+offset_bottom = -13.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "tank"
+horizontal_alignment = 1
+
+[node name="Health" type="Label" parent="Player/TankUnit"]
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "0hp"
+horizontal_alignment = 1
+
 [node name="WarriorUnit" parent="Player" groups=["entities"] instance=ExtResource("1_1147a")]
-position = Vector2(115, 73)
+position = Vector2(112, 76)
 in_team = true
+
+[node name="Name3" type="Label" parent="Player/WarriorUnit"]
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 33.0
+offset_bottom = -13.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "warrior"
+horizontal_alignment = 1
+
+[node name="Health" type="Label" parent="Player/WarriorUnit"]
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "0hp"
+horizontal_alignment = 1
 
 [node name="Enemy" type="Node" parent="."]
 
 [node name="ArcherUnit" parent="Enemy" groups=["entities"] instance=ExtResource("2_arn7n")]
-position = Vector2(119, 29)
+position = Vector2(104, 24)
+
+[node name="Name3" type="Label" parent="Enemy/ArcherUnit"]
+offset_left = -24.0
+offset_top = -20.0
+offset_right = 25.0
+offset_bottom = -12.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.302552, 0.197827, 0.0868011, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "archer"
+horizontal_alignment = 1
+
+[node name="Health" type="Label" parent="Enemy/ArcherUnit"]
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "0hp"
+horizontal_alignment = 1
 
 [node name="TankUnit2" parent="Enemy" groups=["entities"] instance=ExtResource("4_nuu5h")]
-position = Vector2(150, 29)
+position = Vector2(152, 24)
 unit_name = "Tank 2"
 
+[node name="Name4" type="Label" parent="Enemy/TankUnit2"]
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 18.0
+offset_bottom = -12.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "tank2"
+
+[node name="Health" type="Label" parent="Enemy/TankUnit2"]
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "0hp"
+horizontal_alignment = 1
+
 [node name="ArcherUnit2" parent="Enemy" groups=["entities"] instance=ExtResource("2_arn7n")]
-position = Vector2(183, 29)
+position = Vector2(200, 24)
 unit_name = "Archer 2"
+
+[node name="Name4" type="Label" parent="Enemy/ArcherUnit2"]
+offset_left = -24.0
+offset_top = -20.0
+offset_right = 25.0
+offset_bottom = -12.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "archer2"
+
+[node name="Health" type="Label" parent="Enemy/ArcherUnit2"]
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 24.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.301961, 0.196078, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("4_8tqtf")
+theme_override_font_sizes/font_size = 8
+text = "0hp"
+horizontal_alignment = 1
 
 [node name="UserInterface" parent="." instance=ExtResource("7_xv123")]

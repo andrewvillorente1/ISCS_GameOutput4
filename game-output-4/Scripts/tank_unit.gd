@@ -39,9 +39,9 @@ func defend() -> int:
 
 func skill_set(skill: int):
 	if skill == 0:
-		attack()
+		return attack()
 	else:
-		defend()
+		return defend()
 
 func skill_signal(skill: int):
 	if skill == 0:
@@ -63,7 +63,6 @@ func take_damage(amount: int):
 
 func die():
 	print("Tank has been defeated!")
-	queue_free()
 
 
 

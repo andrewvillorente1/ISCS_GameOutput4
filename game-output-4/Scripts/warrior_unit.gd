@@ -45,9 +45,9 @@ func enhance_attack():
 
 func skill_set(skill: int):
 	if skill == 0:
-		attack()
+		return attack()
 	else:
-		enhance_attack()
+		return enhance_attack()
 
 func skill_signal(skill: int):
 	if skill == 0:
@@ -69,7 +69,6 @@ func take_damage(amount: int):
 
 func die():
 	print("Warrior has been defeated!")
-	queue_free()
 
 
 

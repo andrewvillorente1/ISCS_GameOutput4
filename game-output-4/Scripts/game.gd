@@ -1,6 +1,11 @@
 extends Node2D
 @onready var user_interface: CanvasLayer = $UserInterface
-
+@onready var health_mage: Label = $Player/MageUnit/Health
+@onready var health_tank: Label = $Player/TankUnit/Health
+@onready var health_warrior: Label = $Player/WarriorUnit/Health
+@onready var health_archer: Label = $Enemy/ArcherUnit/Health
+@onready var health_tank2: Label = $Enemy/TankUnit2/Health
+@onready var health_archer2: Label = $Enemy/ArcherUnit2/Health
 
 var current_state: int = game_state.prep_phase
 var team: Array[Node2D] = []
@@ -102,6 +107,37 @@ func _ready():
 
 func _action():
 	current_state = game_state.target
+	for child in target_panel_enemy.get_children():
+		child.queue_free()
+	
+	for child in target_panel_ally.get_children():
+		child.queue_free()
+	
+	for entity in get_tree().get_nodes_in_group("entities"):
+		if entity.in_team && entity.health > 0:
+			var button = Button.new()
+			button.text = entity.unit_name
+			button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			button.size_flags_vertical = Control.SIZE_EXPAND_FILL
+			button.anchor_left = 0
+			button.anchor_right = 1
+			button.anchor_top = 0
+			button.anchor_bottom = 1
+			button.set_toggle_mode(true)
+			button.pressed.connect(self._target)
+			target_panel_ally.add_child(button)
+		elif !entity.in_team && entity.health > 0:
+			var button = Button.new()
+			button.text = entity.unit_name
+			button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			button.size_flags_vertical = Control.SIZE_EXPAND_FILL
+			button.anchor_left = 0
+			button.anchor_right = 1
+			button.anchor_top = 0
+			button.anchor_bottom = 1
+			button.set_toggle_mode(true)
+			button.pressed.connect(self._target)
+			target_panel_enemy.add_child(button)
 	
 	for x in team.size():
 		if x == current_member:
@@ -111,7 +147,7 @@ func _action():
 					index = atk_panels[current_member].get_children().find(i)
 					selected_skill = index
 			team[current_member].skill_signal(index)
-				
+	
 
 func initailize_targets(skill_type: int):
 	target_panel.set_visible(true)
@@ -119,6 +155,7 @@ func initailize_targets(skill_type: int):
 	if skill_type == 0:
 		target_panel_ally.set_visible(false)
 		target_panel_enemy.set_visible(true)
+		
 	elif skill_type == 1:
 		target_panel_ally.set_visible(true)
 		target_panel_enemy.set_visible(false)
@@ -131,16 +168,26 @@ func initailize_targets(skill_type: int):
 func add_to_action_dict(node: Node, array: Array):
 	action_value_dict[node] = array
 
+func identify_enemy(name: String):
+	for enemy in enemies:
+		if enemy.unit_name.contains(name):
+			return enemy
+
+func identify_member(name: String):
+	for member in team:
+		if member.unit_name.contains(name):
+			return member
+
 func _target():
 	current_state = game_state.queue
 	if target_array == 0:
 		for enemy in target_panel_enemy.get_children():
 			if enemy.is_pressed():
-				add_to_action_dict(team[current_member], [selected_skill, enemy.text])
+				add_to_action_dict(team[current_member], [selected_skill, identify_enemy(enemy.text)])
 	elif target_array == 1:
 		for member in target_panel_ally.get_children():
 			if member.is_pressed():
-				add_to_action_dict(team[current_member], [selected_skill, member.text])
+				add_to_action_dict(team[current_member], [selected_skill, identify_member(member.text)])
 	else:
 		add_to_action_dict(team[current_member], [selected_skill])
 
@@ -170,27 +217,49 @@ func _input(event):
 		current_state = game_state.prep_phase
 
 func _process(delta):
+
 	if current_state == game_state.prep_phase and current_member < team.size():
+
+		if team[current_member].health <= 0:
+			current_member += 1
+			if current_member == team.size():
+				current_state = game_state.queue
+		else:
+			turn.set_visible(true)
+			turn.text = str(team[current_member].unit_name)
+			if !spawned:
+				for entity in get_tree().get_nodes_in_group("entities"):
+					if entity.unit_name == "Archer":
+						health_archer.text = str(entity.health)
+					elif entity.unit_name == "Archer 2":
+						health_archer2.text = str(entity.health)
+					elif entity.unit_name == "Mage":
+						health_mage.text = str(entity.health)
+					elif entity.unit_name == "Tank":
+						health_tank.text = str(entity.health)
+					elif entity.unit_name == "Tank 2":
+						health_tank2.text = str(entity.health)
+					elif entity.unit_name == "Warrior":
+						health_warrior.text = str(entity.health)
+					if entity.health <= 0:
+						entity.set_visible(false)
+						
+				target_panel_ally.set_visible(false)
+				target_panel_enemy.set_visible(false)
+				for i in team.size():
+					atk_panels[i].set_visible(false)
+				atk_panels[current_member].set_visible(true)
+				spawned = true
 		
-		if !spawned:
-			target_panel_ally.set_visible(false)
-			target_panel_enemy.set_visible(false)
-			for i in team.size():
-				atk_panels[i].set_visible(false)
-			atk_panels[current_member].set_visible(true)
-			spawned = true
-		
-		for b in atk_panels[current_member].get_children():
-			b.set_mouse_filter(0)
-			b.set_pressed_no_signal(false)
-		
+			for b in atk_panels[current_member].get_children():
+				b.set_mouse_filter(0)
+				b.set_pressed_no_signal(false)
+	
 	elif current_state == game_state.target:
 		for b in atk_panels[current_member].get_children():
 			b.set_mouse_filter(2)
 		
 	elif current_state == game_state.queue:
-
-#		not yet working	
 		sorted_action_value = []
 		var keys = action_value_dict.keys()
 		keys.sort_custom(func(a, b): return int(b.speed < a.speed))
@@ -210,10 +279,21 @@ func _process(delta):
 
 	elif current_state == game_state.battle_phase:
 		
+		for entity in get_tree().get_nodes_in_group("entities"):
+			entity.effect_status()
+			
 		for action in sorted_action_value:
 			for node in action:
-				var value = action[node]
-				print(value)
-
+				if node.received_status != "sleep":
+					var value = action[node]
+					if (value[0] == 1) && (node.unit_name.contains("Mage") || node.unit_name.contains("Tank")):
+						value[1].add_health(node.skill_set(1))
+					elif (value[0] == 1) && (node.unit_name.contains("Warrior") || node.unit_name.contains("Archer")):
+						node.skill_set(1)
+					elif (node.unit_name.contains("Mage")) && (value[0] == 0 || value[0] == 2):
+						value[1].receive_status(node.skill_set(value[0]))
+					else:
+						value[1].take_damage(node.skill_set(0))
+					print(node.health)
+	
 		current_state = game_state.prep_phase
-		pass

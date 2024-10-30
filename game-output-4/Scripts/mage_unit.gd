@@ -52,11 +52,11 @@ func heal() -> int:
 
 func skill_set(skill: int):
 	if skill == 0:
-		sleep()
+		return sleep()
 	elif skill == 1:
-		heal()
+		return heal()
 	else:
-		poison()
+		return poison()
 
 func skill_signal(skill: int):
 	if skill == 0:
@@ -83,8 +83,7 @@ func take_damage(amount: int):
 
 func die():
 	print("Tank has been defeated!")
-	queue_free()
-
+	
 
 #status:
 # call when receiving status
