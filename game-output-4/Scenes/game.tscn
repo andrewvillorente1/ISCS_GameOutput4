@@ -190,3 +190,7 @@ text = "0hp"
 horizontal_alignment = 1
 
 [node name="UserInterface" parent="." instance=ExtResource("7_xv123")]
+
+[node name="ActionTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

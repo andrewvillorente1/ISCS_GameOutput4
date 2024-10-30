@@ -216,10 +216,14 @@ func _input(event):
 		target_panel.set_visible(false)
 		current_state = game_state.prep_phase
 
+
 func _process(delta):
 
-	if current_state == game_state.prep_phase and current_member < team.size():
+	if team.size() == 0 || enemies.size() == 0:
+		get_tree().quit()
 
+	if current_state == game_state.prep_phase and current_member < team.size():
+		feedback.set_visible(true)
 		if team[current_member].health <= 0:
 			current_member += 1
 			if current_member == team.size():
@@ -265,7 +269,9 @@ func _process(delta):
 		keys.sort_custom(func(a, b): return int(b.speed < a.speed))
 		for node in keys:
 			sorted_action_value.append({node: action_value_dict[node]})
-			#sorted_action_value.append(node.speed)
+		
+		if team.size() == 0 || enemies.size() == 0:
+			get_tree().quit()
 		
 		for atk in atk_panels[current_member].get_children():
 			atk.set_pressed(false)
@@ -278,6 +284,9 @@ func _process(delta):
 		print(sorted_action_value)
 
 	elif current_state == game_state.battle_phase:
+		turn.set_visible(false)
+		feedback.set_visible(true)
+		feedback.text = str("")
 		
 		for entity in get_tree().get_nodes_in_group("entities"):
 			entity.effect_status()
@@ -287,13 +296,19 @@ func _process(delta):
 				if node.received_status != "sleep":
 					var value = action[node]
 					if (value[0] == 1) && (node.unit_name.contains("Mage") || node.unit_name.contains("Tank")):
+						feedback.text += str(node.unit_name, " healed ", value[1].unit_name, "; ")
 						value[1].add_health(node.skill_set(1))
 					elif (value[0] == 1) && (node.unit_name.contains("Warrior") || node.unit_name.contains("Archer")):
+						feedback.text += str(node.unit_name, " enhanced their ability", "; ")
 						node.skill_set(1)
 					elif (node.unit_name.contains("Mage")) && (value[0] == 0 || value[0] == 2):
 						value[1].receive_status(node.skill_set(value[0]))
+						if value[0] == 0:
+							feedback.text += str(node.unit_name, " made ", value[1].unit_name, " fall asleep; ")
+						elif value[0] == 2:
+							feedback.text += str(node.unit_name, " poisoned ", value[1].unit_name, "; ")
 					else:
 						value[1].take_damage(node.skill_set(0))
-					print(node.health)
-	
+						feedback.text += str(node.unit_name, " attacked ", value[1].unit_name, "; ")
+
 		current_state = game_state.prep_phase

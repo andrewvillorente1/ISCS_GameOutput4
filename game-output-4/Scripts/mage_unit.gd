@@ -15,6 +15,7 @@ var status_count = 0
 @onready var animated_sprite = $AnimatedSprite2D
 
 signal skill_target(skill_type: int)
+signal time(seconds: int)
 
 func _ready() -> void:
 	if in_team:
